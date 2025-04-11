@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ro'yxatdan o'tish</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-size: cover;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .register-container {
+            background-color: #e0e0e0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .register-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            width: 100%;
+            display: inline-block; /* Ularni yonma-yon qilish uchun flexni ishlatamiz */
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        .input-group input {
+            width: 94%; /* Har bir inputning kengligini 100% ga o'rnatamiz */
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        /* Bu yerda barcha inputlarni yonma-yon qilish uchun flex konteynerdan foydalanamiz */
+        .all-inputs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .all-inputs .input-group {
+            width: 48%; /* Har bir inputning kengligi 48% bo'lib, ikki input yonma-yon chiqadi */
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        }
+
+        .btn:hover, .btn:active {
+            transform: scale(1.1);
+            background-color: #007BFF;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .login-link a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Media query for smaller devices */
+        @media (max-width: 768px) {
+            .register-container {
+                padding: 15px;
+            }
+
+            .btn {
+                font-size: 14px;
+            }
+
+            .all-inputs {
+                flex-direction: column;
+            }
+
+            .all-inputs .input-group {
+                width: 100%;
+            }
+        }
+
+        /* Media query for very small devices (mobile phones) */
+        @media (max-width: 480px) {
+            .register-container {
+                padding: 10px;
+                width: 90%;
+            }
+
+            .input-group input {
+                padding: 8px;
+            }
+
+            .btn {
+                font-size: 14px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="register-container">
+    <h2>Haydovchini ro`yxatdan o`tkazish</h2>
+
+    <form method="POST" action="/auth/driver/create">
+        <div class="all-inputs">
+            <div class="input-group">
+                <label for="username">Foydalanuvchi nomi:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="lastName">Familiya:</label>
+                <input type="text" id="lastName" name="lastName" required>
+            </div>
+            <div class="input-group">
+                <label for="firstName">Ism:</label>
+                <input type="text" id="firstName" name="firstName" required>
+            </div>
+            <div class="input-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label for="age">Yoshi:</label>
+                <input type="number" id="age" name="age" required>
+            </div>
+            <div class="input-group">
+                <label for="address">Yashash manzil:</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+            <div class="input-group">
+                <label for="phoneNumber">Telefon raqam:</label>
+                <input type="text" id="phoneNumber" name="phoneNumber" required>
+            </div>
+            <div class="input-group">
+                <label for="model">Mashina modeli:</label>
+                <input type="text" id="model" name="model" required>
+            </div>
+            <div class="input-group">
+                <label for="seatCount">Mashina o`rindiqlar soni:</label>
+                <input type="number" id="seatCount" name="seatCount" required>
+            </div>
+            <div class="input-group">
+                <label for="color">Mashina rangi:</label>
+                <input type="text" id="color" name="color" required>
+            </div>
+            <div class="input-group">
+                <label for="carNumber">Mashina raqami:</label>
+                <input type="text" id="carNumber" name="carNumber" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Parol:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+        </div>
+
+        <button type="submit" class="btn">Ro'yxatdan o'tkazish</button>
+    </form>
+
+    <div class="login-link">
+        <a href="/auth/login">Orqaga qaytish</a>
+    </div>
+</div>
+
+</body>
+</html>

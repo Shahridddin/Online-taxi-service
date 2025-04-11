@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="uz" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chiqish - Taksi Xizmati</title>
+    <style>
+        /* 🌙 eTaxi Design */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9; /* Light gray background */
+            color: #333; /* Dark text for readability */
+            text-align: center;
+            margin: 0;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            background-color: #ffffff; /* White background for content box */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Soft shadow for the container */
+        }
+
+        h2 {
+            font-size: 20px;
+            margin: 15px 0;
+            color: #007bff;
+        }
+
+        /* 🔹 User Box */
+        .user-box {
+            background-color: #f8f9fa;
+            padding: 12px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            min-width: 200px;
+            justify-content: center;
+        }
+
+        .avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .username {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* 🔹 Logout Buttons */
+        .signout-btn {
+            background-color: #28a745;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .signout-btn:hover {
+            background-color: #218838;
+        }
+
+        .signout-all {
+            width: 100%;
+            background-color: #dc3545;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+
+        .signout-all:hover {
+            background-color: #c82333;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #8b949e;
+        }
+
+        /* 📱 Responsive Design - For Small Screens */
+        @media screen and (max-width: 480px) {
+            .user-box {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px;
+            }
+
+            .signout-btn {
+                width: 100%; /* Button takes full width on small screens */
+                margin-top: 10px;
+            }
+
+            .user-info {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Taksi Xizmatidan chiqish</h2>
+
+    <!-- 🔹 Foydalanuvchi uchun chiqish qutisi -->
+    <div class="user-box">
+        <div class="user-info">
+            <span class="username" th:text="${username}">Foydalanuvchi</span>
+        </div>
+
+        <form action="/auth/logout" method="post">
+            <input type="hidden" name="username" th:value="${username}">
+            <button type="submit" class="signout-btn">Chiqish</button>
+        </form>
+    </div>
+
+    <!-- 🔹 Barcha akkauntlardan chiqish tugmasi -->
+    <form action="/auth/logout/account" method="post">
+        <button type="submit" class="signout-all">Barcha qurilmalardan chiqish</button>
+    </form>
+
+    <div class="footer">
+        <p>Taksi xizmatidan foydalanish uchun tashakkur! 🚗</p>
+    </div>
+</div>
+
+</body>
+</html>
